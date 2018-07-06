@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Loan Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+        body{
+            width:100%;
+            height: 100%;
+            background-image: url("./banking.jpg");
+            background-position: inherit;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+  </style>
+</head>
+<body ng-app="myApp" ng-controller="loanForm">
+
+<div class="container-fluid">
+    <center><h2>LOAN FORM</h2></center>
+    <button type="button" class="btn btn-danger" ng-click="Logout()" style="float: right;">Logout</button>
+    <br><br><br>
+    <div class="panel panel-default">
+            <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>User Details</h3></i></b></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4" >
+            <label for="name"><b>Name :</b></label>
+            <input type="text" class="form-control" ng-model="name" placeholder="Enter name" name="name">          
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4" >
+            <label for="Aadhar Number"><b>Aadhar # :</b></label>
+            <input type="number" class="form-control" ng-model="aadhar" placeholder="Enter Aadhar Number" name="aadhar">          
+        </div>	
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4" >
+            <label for="emailid"><b>Email Id :</b></label>
+            <input type="text" class="form-control" ng-model="email_id" placeholder="Enter Email Id" name="email_id">                         
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4" >
+            <label for="Mobile Number"><b>Mobile # :</b></label>
+            <input type="number" class="form-control" ng-model="mobile_number" placeholder="Enter Mobile Number" name="mobile_number">          
+	    </div>
+    </div>        
+    <br>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Asset Details</h3></i></b></div>
+    </div>
+    <br>
+    <div class="row">
+	    <div class="col-md-4" >
+                <label for="assetType"><b>Asset Type :</b></label>
+                <select class="form-control" ng-model="selectedassetType" placeholder="--Please Select--" ng-options="x for x in assetType"></select>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4" >
+                <label for="assetId"><b>Asset Id :</b></label>
+                <input type="text" class="form-control" ng-model="pid" placeholder="Enter Asset Id" name="pid">              
+        </div>
+    </div>
+    <br>
+    <div class="row">
+	   <div class="col-md-4" >
+                <label for="assetValue"><b>Asset Value :</b></label>
+                <input type="number" class="form-control" ng-model="asset_value" placeholder="Enter Asset Value" name="asset_value">              
+        </div>
+    </div>    
+    <br>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Bank Details</h3></i></b></div>
+    </div>
+    <br>
+    <div class="row">
+	<div class="col-md-4" >
+            <label for="bankname"><b>Bank Name :</b></label>
+            <input type="text" class="form-control" ng-model="bank_name" placeholder="Enter Bank Name" name="bank_name">              
+    </div>
+    <div class="col-md-1"></div>
+	<div class="col-md-4" >
+            <label for="branchname"><b>Branch Name :</b></label>
+            <input type="text" class="form-control" ng-model="branch_name" placeholder="Enter Branch Name" name="branch_name">              
+    </div>
+    </div> 
+    <br>
+    <div class="row">
+        <div class="col-md-4" >
+             <label for="Acc Number"><b>Account # :</b></label>
+             <input type="number" class="form-control" ng-model="acc_number" placeholder="Enter Account Number" name="acc_number">          
+        </div>
+    </div> 
+</div>
+<br>
+<br>
+<center><button class="btn btn-primary" ng-click="DataToDb()">Submit</button></center>
+<br>
+<br>
+</body>
+</html>

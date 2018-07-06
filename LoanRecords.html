@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Loan Records</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+      body{
+          width:100%;
+          height: 100%;
+          background-image: url("./record.jpeg");
+          background-position: inherit;
+          background-size: 100% 120%;
+          background-repeat: no-repeat;
+      }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="recordsForm">
+<span ng-init="initialLoad()"></span>
+<div class="container">
+  <br>
+  <center><h2>LOAN RECORDS</h2></center>
+  <button type="button" class="btn btn-danger" ng-click="Logout()" style="float: right;">Logout</button>
+  <br>
+  <br>
+  <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Loan Id</th>
+        <th>Loan Applicant Name</th>
+        <th>Asset Type</th>
+        <th>Asset Id</th>
+        <th>Loan Applied Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="color: brown; font-weight: bolder;" ng-repeat="x in tableData">
+          <td ng-click="showLoanForm(x.doc._id)"><a ng-href="#">{{ x.doc._id }}</a></td>
+          <td>{{ x.doc.applicant_name }}</td>
+          <td>{{ x.doc.asset_type }}</td>
+          <td>{{ x.doc.asset_id }}</td>
+          <td>{{ x.doc.loan_applied_data }}</td>
+          <td>{{ x.doc.application_status }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+</body>
+</html>

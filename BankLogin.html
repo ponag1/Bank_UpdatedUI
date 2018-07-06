@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bank Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    body{
+        width:100%;
+        height: 100%;
+        background-image: url("./background.jpg");
+        background-position: inherit;
+        background-size: 100% 120%;
+        background-repeat: no-repeat;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+          <center><h1>BANK LOGIN</h1></center>      
+        </div>      
+    </div>
+  <br><br>
+<div class="container" style="margin-left: auto; margin-right: auto; border-style: groove; width: 30%; background: center;">
+  <br>
+  <form ng-app="myApp" ng-controller="loginPage">
+    <center><img class="img-fluid" ng-src="bank.png" alt="Chania" width="150" height="150"></center> 
+    <div class="form-group">
+      <label for="username"><b>Username:</b></label>
+      <input type="text" class="form-control" ng-model="username" placeholder="Enter username" name="username">
+    </div>
+    <div class="form-group">
+      <label for="pwd"><b>Password:</b></label>
+      <input type="password" class="form-control" ng-model="pwd" placeholder="Enter password" name="pswd">
+    </div>
+    <br>
+    <center><button class="btn btn-primary" ng-click="Authenticate()">Login</button></center>
+  </form>
+  <br><br>
+</div>
+
+</body>
+</html>

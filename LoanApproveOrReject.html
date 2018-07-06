@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Loan Form Approve Or Reject</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="app.js"></script>
+<style type="text/css">
+
+  .red{
+    color:red;
+  }
+  .green{
+    color:green;
+  }
+  body{
+        width:100%;
+        height: 100%;
+        background-image: url("./banking.jpg");
+        background-position: inherit;
+        background-size: 100% 120%;
+        background-repeat: no-repeat;
+      }
+</style>
+</head>
+<body ng-app="myApp" ng-controller="approveReject">
+<span ng-init="loadLoanData()"></span>
+<div class="container-fluid">
+                <center><h2>LOAN FORM</h2></center>
+                <br>
+                <button type="button" ng-click="Back()" class="btn btn-secondary">Back</button>
+                <br>
+                <br>
+                <div class="panel panel-default">
+                        <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>User Details</h3></i></b></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4" >
+                        <label for="name"><b>Name :</b></label>
+                        <input type="text" class="form-control" ng-model="name" name="name" readonly>          
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4" >
+                        <label for="Aadhar Number"><b>Aadhar # :</b></label>
+                        <input type="text" class="form-control" ng-model="aadhar" name="aadhar" readonly>          
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4" >
+                        <label for="emailid"><b>Email Id :</b></label>
+                        <input type="text" class="form-control" ng-model="email_id" name="email_id" readonly>                         
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4" >
+                        <label for="Mobile Number"><b>Mobile # :</b></label>
+                        <input type="text" class="form-control" ng-model="mobile_number" name="mobile_number" readonly >          
+                    </div>	
+                </div>        
+                <br>
+                <br>
+                <div class="panel panel-default">
+                    <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Asset Details</h3></i></b></div>
+                </div>
+                <br>
+                <div class="row">
+                        <div class="col-md-4" >
+                            <label for="assetType"><b>Asset Type :</b></label>
+                            <select class="form-control" ng-model="selectedassetType" ng-options="x for x in assetType" disabled></select>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4" >
+                            <label for="assetId"><b>Asset Id :</b></label>
+                            <input type="text" class="form-control" ng-model="pid" name="pid" readonly>              
+                        </div>
+                        <div class="col-md-4" >
+                            <br>
+                            <button class="btn btn-primary" ng-disabled="show_property_details" id= "show_property_details" data-toggle="modal" data-target="#myLoanModal">Show Asset Details</button>
+                        </div>
+						<div class="col-md-4" >
+                            <br>
+                            <button class="btn btn-primary" ng-disabled="verify_details" id= "verify_details" ng-click = "Verify()">Verify</button>
+							<img ng-show = "showVerify" ng-src = "verified.jpg" style="height:50px;"/>
+							<img ng-show = "showNotVerified" ng-src = "not_verified.png" style="height:50px;"/>
+						</div>
+                </div>
+                <br>
+                <div class="row">
+                       <div class="col-md-4" >
+                            <label for="assetValue"><b>Asset Value :</b></label>
+                            <input type="text" class="form-control" ng-model="asset_value"  name="asset_value" readonly>              
+                        </div>
+                </div>    
+                <br>
+                <br>
+                <div class="panel panel-default">
+                    <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Bank Details</h3></i></b></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4" >
+                        <label for="bankname"><b>Bank Name :</b></label>
+                        <input type="text" class="form-control" ng-model="bank_name" name="bank_name" readonly>              
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4" >
+                        <label for="branchname"><b>Branch Name :</b></label>
+                        <input type="text" class="form-control" ng-model="branch_name" name="branch_name" readonly>              
+                    </div>
+                </div> 
+                <br>
+                <div class="row">
+                    <div class="col-md-4" >
+                         <label for="Acc Number"><b>Account # :</b></label>
+                         <input type="text" class="form-control" ng-model="acc_number" name="acc_number" readonly>          
+                    </div>
+                </div> 
+            </div>
+            <br>
+            <br>
+<br>
+<center>
+        <div class="btn-group">
+             <button class="btn btn-primary"  id= "Approved" ng-click="Update($event.currentTarget.id)">Approve</button>
+        </div>
+        <div class="btn-group">     
+             <button class="btn btn-primary" id= "Rejected" data-toggle="modal" data-target="#myModal">Reject</button>
+        </div>
+</center>
+<br>
+<br>
+  <!-- The Modal -->
+  <div class="modal fade" id="myLoanModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <center><h3 class="modal-title">MOJANI - View Application for Land Survey</h3></center>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                    <br>
+                    <div class="panel panel-default">
+                            <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Land Details</h3></i></b></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4" >
+                            <label for="wardnumber"><b>Ward # : </b></label>
+                            <input type="text" class="form-control" ng-model="ward_number" name="ward_number" readonly>          
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="areacode"><b>Area Code :</b></label>
+                            <input type="text" class="form-control" ng-model="area_code" name="area_code" readonly>          
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="plotnumber"><b>Plot/Site # :</b></label>
+                            <input type="text" class="form-control" ng-model="plot_number" name="plot_number" readonly>          
+                        </div>	
+                    </div>
+                    <br>
+                    <div class="panel panel-default">
+                            <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Geographic Data</h3></i></b></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4" >
+                            <label for="latitude"><b>Latitude : </b></label>
+                            <input type="text" class="form-control" ng-model="latitude" name="latitude" readonly>          
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="longitude"><b>Longtitude :</b></label>
+                            <input type="text" class="form-control" ng-model="longitude" name="longitude" readonly>          
+                        </div>	
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4" >
+                            <label for="plotlength"><b>Plot Length (ft.) : </b></label>
+                            <input type="text" class="form-control" ng-model="plot_length" name="plot_length" readonly>          
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="plotwidth"><b>Plot Width (ft.) :</b></label>
+                            <input type="text" class="form-control" ng-model="plot_width" name="plot_width" readonly>          
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="plotarea"><b>Total Plot Area (sq. ft.) :</b></label>
+                            <input type="text" class="form-control" ng-model="plot_area" name="plot_area" readonly>          
+                        </div>	
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10" >
+                            <label for="plotaddress"><b>Property Address : </b></label>
+                            <input type="text" class="form-control" ng-model="plot_address" name="plot_address" readonly>          
+                        </div>	
+                    </div>
+                    <br>
+                    <div class="panel panel-default">
+                            <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Land Allottee Details</h3></i></b></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4" >
+                            <label for="allotteename"><b>Allottee Name :</b></label>
+                            <input type="text" class="form-control" ng-model="allottee_name" name="allottee_name" readonly>          
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="Aadhar Number"><b>Aadhar # :</b></label>
+                            <input type="text" class="form-control" ng-model="aadhar_number"  name="aadhar_number" readonly>          
+                        </div>
+                        <div class="col-md-5" >
+                                <label for="gender"><b>Gender :</b></label>
+                                   <br>
+                                   <div class="form-check-inline">
+                                           <label class="form-check-label" for="radio1">
+                                           <input type="radio" class="form-check-input" ng-model="allottee_gender" name="optradio" value="M" disabled>Male
+                                           </label>
+                                   </div>
+                                   <div class="form-check-inline">
+                                           <label class="form-check-label" for="radio2">
+                                           <input type="radio" class="form-check-input" ng-model="allottee_gender" name="optradio" value="F" disabled>Female
+                                           </label>
+                                   </div>
+                       </div>	
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4" >
+                                    <label for="Mobile Number"><b>Mobile # :</b></label>
+                                    <input type="text" class="form-control" ng-model="allottee_mobile_number" name="allottee_mobile_number" readonly>          
+                        </div>
+                        <div class="col-md-5" >
+                            <label for="emailid"><b>Email Id :</b></label>
+                            <input type="text" class="form-control" ng-model="allottee_email_id" name="allottee_email_id" readonly>                         
+                        </div>
+                    </div>  
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10" >
+                                    <label for="allotteeaddress"><b>Allottee Address :</b></label>
+                                    <input type="text" class="form-control" ng-model="allottee_address" name="allottee_address" readonly>          
+                        </div>
+                    </div>  
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Rejection Reason</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                <textarea class="form-control" rows="5" id="comment" ng-model="application_rejection_reason"></textarea>
+            </div>
+                  
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" ng-click="Update()" data-dismiss="modal">OK</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+</body>
+</html>

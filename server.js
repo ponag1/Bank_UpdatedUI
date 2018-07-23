@@ -124,7 +124,7 @@ app.post('/checkPropertyId', function(req, res) {
 	var land_details;
 	var owner_details;
 	var data;
-	requestify.get('https://landrecord.mybluemix.net/api/LandRecord?filter[where][pid]='+pid)
+	requestify.get('http://13.232.73.187:3001/api/LandRecord?filter[where][pid]='+pid)
 	  .then(function(response) {
 		  land_details = (response.getBody())[0];
 		  var owner = land_details.owner;
@@ -155,7 +155,7 @@ app.post('/checkPropertyId', function(req, res) {
                 }
                 res.send(JSON.stringify(data));
             }else{
-                requestify.request('https://landrecord.mybluemix.net/api/AddAssignee?filter[where][owner.aadharNo]='+owner, {
+                requestify.request('http://13.232.73.187:3001/api/AddAssignee?filter[where][owner.aadharNo]='+owner, {
                     method: 'GET',
                     dataType: 'json'
                 })

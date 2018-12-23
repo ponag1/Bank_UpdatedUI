@@ -1,0 +1,192 @@
+@font-face {
+	font-family: 'tt_norms_bold';
+	src: url('../fonts/TypeType - TT Norms Bold.eot');
+	src: local('☺'), url('../fonts/TypeType - TT Norms Bold.woff') format('woff'), url('../fonts/TypeType - TT Norms Bold.ttf') format('truetype'), url('../fonts/TypeType - TT Norms Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'tt_norms';
+	src: url('../fonts/TypeType - TT Norms Regular.eot');
+	src: local('☺'), url('../fonts/TypeType - TT Norms Regular.woff') format('woff'), url('../fonts/TypeType - TT Norms Regular.ttf') format('truetype'), url('../fonts/TypeType - TT Norms Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+body {
+	font-family: 'tt_norms';
+	font-size: 14px;
+	background: #e5e5e5;
+}
+ul, li, a, h1, h2, h3, p {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+.container-fluid {
+	padding: 0px;
+}
+.header_bg {
+	background: url(../images/header_repeat.png) repeat-x center top #fff;
+	min-height: 111px;
+	width: 100%;
+	position: relative;
+}
+.header_left, .header_right {
+	position: absolute;
+	top: 0px;
+}
+.header_left {
+	background: url(../images/left_header.png) no-repeat left top;
+	min-height: 111px;
+	width: 45%;
+	left: 0px;
+	z-index: 99;
+}
+.header_right {
+	background: url(../images/right_header.png) no-repeat right top;
+	min-height: 111px;
+	width: 45%;
+	right: 0px;
+	z-index: 99;
+}
+.logo_pharma {
+	min-height: 46px;
+	position: relative;
+	z-index: 9999;
+	margin-top: 30px;
+	float: left;
+}
+.banner_text_right {
+	float: right;
+	margin: 30px 0 0 100px;
+	position: relative;
+	z-index: 9999;
+	color: #fff;
+	font-family: 'tt_norms_bold';
+	font-size: 18px;
+}
+.banner_text_right b {
+	color: #00b140;
+}
+.footer {
+	font-size: 16px;
+	color: #999999;
+	text-align: center;
+	padding: 10px 0;
+	border-top: 2px solid #00b140;
+	letter-spacing: 2px;
+}
+.home_banner {
+	background: url(../images/banner_bg.png) no-repeat center top;
+	background-size: 100% auto;
+	min-height: 430px;
+	padding: 50px 0px 0px 0px;
+	margin:0px;
+}
+.home_banner h1 {
+	font-size: 40px;	
+	font-weight: bold;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	border-bottom: 5px solid #00b140;
+	display: inline-block;
+	margin-bottom: 125px; 
+}
+.home_banner h2 {
+	font-size: 34px;	
+	font-weight: bold;
+	color: #FFFFFF;
+	margin-bottom: 10px; 
+}
+.home_banner h3 {
+	font-size: 18px;	
+	font-weight: normal;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+.title_banner {
+	background: url(../images/title_bg.png) no-repeat center top;
+	background-size: 100% auto;
+	min-height: 130px;
+	padding: 0px 0px 0px 0px;
+	margin:0px;
+	text-align: center;
+}
+.title_banner h1 {
+	font-size: 34px;	
+	font-weight: bold;
+	color: #FFFFFF;
+	margin-bottom: 10px; 
+	margin-top: 30px;
+}
+.title_banner h2 {
+	font-size: 18px;	
+	font-weight: normal;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+.login_container {
+	background:  #18415f;
+}
+.login_container label {
+	color: #667a8b;
+	text-transform: uppercase;
+	font-size: 14px;
+	display: block;
+	height: 25px;
+}
+.login_container input[type="text"], .login_container input[type="password"] {
+	background: #FFFFF;
+	width:100%;
+	border: 0px;
+	color: #667a8b;
+	padding:0px 10px;
+	height: 40px;
+	font-size: 14px;
+	display: block;
+}
+.login_container input[type="submit"] {
+	background: #28bfdc;
+	padding:0px 40px;
+	border:0px;
+	height: 40px;
+	font-size: 14px;
+	margin-top: 30px;
+	width:100%;
+}
+.red { color:#FF0000;}
+.mojani_form { background: #FFFFFF; padding: 30px 0px; margin-bottom: 0px;}
+
+.mojani_form .block {  padding: 0px 20px;}
+.mojani_form label { display: block; font-size: 15px; margin-bottom: 5px;}
+.mojani_form input[type="text"] { display: block; background: #E5E5E5; border:0px; width: 100%; padding: 0px 10px; margin-bottom: 20px; height: 45px;}
+.mojani_form select { display: block; background: #E5E5E5; border:0px; width: 100%; padding: 0px 10px; margin-bottom: 20px; height: 45px;}
+.mojani_form input[type="submit"] { display: block; background: #d38547; border:0px; width: 100%; padding: 0px 10px 0px 10px; margin-bottom: 20px; font-size: 18px; height: 45px; color: #FFFFFF;}
+.mojani_form input[type="submit"].verify { display: block; background: #d38547 url(../images/verify_icon.png) no-repeat right center; border:0px; width: 100%; padding: 0px 10px 0px 10px; margin-bottom: 20px; font-size: 18px; height: 45px;}
+
+.mojani_form textarea { display: block; background: #E5E5E5; border:0px; width: 100%; padding: 12px 10px; margin-bottom: 10px; min-height: 200px;}
+.mojani_form h2 { color:#18415f; font-size: 18px; font-weight: bold; margin: 0px 15px 20px 35px;}
+.mojani_form hr { border: 0px; margin-top: 15px; margin-bottom: 30px; height:1px; background: #e5e5e5; }
+.mojani_form table {
+    border-collapse: collapse;
+    margin: auto;
+    width: calc(100% - 30px);
+	font-size: 15px; 
+}
+.mojani_form th {
+    text-align: left;
+    padding: 15px;
+	border-top: 3px solid #d38545;
+	border-bottom: 3px solid #d38545;
+	background: #FFFFFF;
+}
+.mojani_form td {
+    text-align: left;
+    padding: 15px;
+}
+.mojani_form tr:nth-child(odd) {background-color: #fbf2eb;
+	border-top: 1px solid #f1d3bb;
+	border-bottom: 1px solid #f1d3bb;}
+.titlebar {background: #d38547; color: #FFFFFF; padding:20px 35px; font-size: 18px; text-transform: uppercase;}
+.titlebar img {float: right; margin-left: 10px;}
+.dropdown button {background-color: transparent; border: 0px; text-transform: uppercase; color:#FFFFFF; font-size: 14px;}

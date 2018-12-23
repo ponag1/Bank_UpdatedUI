@@ -114,6 +114,9 @@ app.controller('approveReject', function($scope, $http, $window, $filter) {
     $scope.Back = function() {
         $window.location.href = '/LoanRecords.html';        
     }
+    $scope.Logout = function() {
+        $window.location.href = '/BankLogin.html';        
+    }
     $scope.assetType = ["Property", "Vehicle", "Misc."];
     $scope.application_rejection_reason ;
     $scope.show_property_details = true;

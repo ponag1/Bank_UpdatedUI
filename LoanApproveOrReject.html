@@ -6,6 +6,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -27,7 +28,7 @@
     </header>
     <!-- Header Section ends here-->              
     
-    <!-- Content Section ends here-->
+    <!-- Content Section starts here-->
     <div class="title_banner">
         <div class="container" style="width:1230px;">&nbsp;
         </div>
@@ -37,7 +38,6 @@
           <div class="dropdown" style="float: right;">
             <button type="button" data-toggle="dropdown">BANK MANAGER <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="#" ng-click="Back()">BACK</a</li>
               <li><a href="#" ng-click="Logout()">LOG OUT</a></li>
             </ul>
           </div>
@@ -84,11 +84,11 @@
           <label>&nbsp;</label>
           <input type="submit" value="Show Asset Details" ng-disabled="show_property_details" id= "show_property_details" data-toggle="modal" data-target="#myLoanModal">
         </div>
-        <div class="col-lg-3" >
+        <div class="col-lg-2" >
           <label>&nbsp;</label>
           <input type="submit" value="Verify" ng-disabled="verify_details" id= "verify_details" ng-click = "Verify()"></div>
-          <img ng-show = "showVerify" ng-src = "images/verified.jpg" style="height:50px;"/>
-		  <img ng-show = "showNotVerified" ng-src = "images/not_verified.png" style="height:50px;"/>
+          <img ng-show = "showVerify" ng-src = "images/verified.jpg" style="height:50px;margin-top:25px;"/>
+		  <img ng-show = "showNotVerified" ng-src = "images/not_verified.png" style="height:50px;margin-top:25px"/>
         <div class="clearfix"></div>
         </div>
         <div class="block">
@@ -118,7 +118,23 @@
         <div class="col-lg-3" >&nbsp;</div>
         <div class="clearfix"></div>
         </div> 
-    </div>
+        <div class="block">
+        <div class="col-lg-6" >&nbsp;</div>
+        <div class="col-lg-2" >
+        <label>&nbsp;</label>
+        <input type="submit" value="Back" ng-click="Back()">
+        </div>
+        <div class="col-lg-2" >
+        <label>&nbsp;</label>
+        <input type="submit" value="Approve" id= "Approved" ng-click="Update($event.currentTarget.id)">
+        </div>
+        <div class="col-lg-2" >
+        <label>&nbsp;</label>
+        <input type="submit" value="Reject" id= "Rejected" data-toggle="modal" data-target="#myModal">
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        </div>
     </div>
     <!-- Content Section ends here--> 
       
@@ -133,151 +149,153 @@ $(document).ready(function(){
 });
 </script>
 </body>
-</html>   
-    
-    
-    
-    
+</html>       
 
- 
-<center>
-        <div class="btn-group">
-             <button class="btn btn-primary"  id= "Approved" ng-click="Update($event.currentTarget.id)">Approve</button>
+<!-- The Modal -->
+  <div class="container-fluid modal" id="myLoanModal">
+    <!-- Header Section starts here-->
+    <header class="header_bg ">
+        <div class="header_left"></div>
+        <div class="header_right"></div>
+        <div class="container">
+          <div class="logo_pharma"> <a href="#"><img src="images/logo.png" alt="logo"/></a> </div>
+          <div class="banner_text_right"> Blockchain for Business<br>
+            <b>WITH IBM BLOCKCHAIN</b> </div>
         </div>
-        <div class="btn-group">     
-             <button class="btn btn-primary" id= "Rejected" data-toggle="modal" data-target="#myModal">Reject</button>
+    </header>
+    <!-- Header Section ends here-->      
+    
+    <!-- Content Section ends here-->
+    <div class="title_banner">
+        <div class="container" style="width:1230px;">
+          <h1>One click away for Land Registry</h1>
+          <h2>Online Land Records</h2>
         </div>
-</center>
-<br>
-<br>
-  <!-- The Modal -->
-  <div class="modal fade" id="myLoanModal">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <center><h3 class="modal-title">MOJANI - View Application for Land Survey</h3></center>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            
-            <!-- Modal body -->
-            <div class="modal-body">
-                    <br>
-                    <div class="panel panel-default">
-                            <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Land Details</h3></i></b></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4" >
-                            <label for="wardnumber"><b>Ward # : </b></label>
-                            <input type="text" class="form-control" ng-model="ward_number" name="ward_number" readonly>          
-                        </div>
-                        <div class="col-md-4" >
-                            <label for="areacode"><b>Area Code :</b></label>
-                            <input type="text" class="form-control" ng-model="area_code" name="area_code" readonly>          
-                        </div>
-                        <div class="col-md-4" >
-                            <label for="plotnumber"><b>Plot/Site # :</b></label>
-                            <input type="text" class="form-control" ng-model="plot_number" name="plot_number" readonly>          
-                        </div>	
-                    </div>
-                    <br>
-                    <div class="panel panel-default">
-                            <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Geographic Data</h3></i></b></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4" >
-                            <label for="latitude"><b>Latitude : </b></label>
-                            <input type="text" class="form-control" ng-model="latitude" name="latitude" readonly>          
-                        </div>
-                        <div class="col-md-4" >
-                            <label for="longitude"><b>Longtitude :</b></label>
-                            <input type="text" class="form-control" ng-model="longitude" name="longitude" readonly>          
-                        </div>	
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4" >
-                            <label for="plotlength"><b>Plot Length (ft.) : </b></label>
-                            <input type="text" class="form-control" ng-model="plot_length" name="plot_length" readonly>          
-                        </div>
-                        <div class="col-md-4" >
-                            <label for="plotwidth"><b>Plot Width (ft.) :</b></label>
-                            <input type="text" class="form-control" ng-model="plot_width" name="plot_width" readonly>          
-                        </div>
-                        <div class="col-md-4" >
-                            <label for="plotarea"><b>Total Plot Area (sq. ft.) :</b></label>
-                            <input type="text" class="form-control" ng-model="plot_area" name="plot_area" readonly>          
-                        </div>	
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-10" >
-                            <label for="plotaddress"><b>Property Address : </b></label>
-                            <input type="text" class="form-control" ng-model="plot_address" name="plot_address" readonly>          
-                        </div>	
-                    </div>
-                    <br>
-                    <div class="panel panel-default">
-                            <div class="panel-body" style="border: 2px solid black; background-color: deepskyblue; height: 40px;"><b><i><h3>Land Allottee Details</h3></i></b></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4" >
-                            <label for="allotteename"><b>Allottee Name :</b></label>
-                            <input type="text" class="form-control" ng-model="allottee_name" name="allottee_name" readonly>          
-                        </div>
-                        <div class="col-md-4" >
-                            <label for="Aadhar Number"><b>Aadhar # :</b></label>
-                            <input type="text" class="form-control" ng-model="aadhar_number"  name="aadhar_number" readonly>          
-                        </div>
-                        <div class="col-md-5" >
-                                <label for="gender"><b>Gender :</b></label>
-                                   <br>
-                                   <div class="form-check-inline">
-                                           <label class="form-check-label" for="radio1">
-                                           <input type="radio" class="form-check-input" ng-model="allottee_gender" name="optradio" value="M" disabled>Male
-                                           </label>
-                                   </div>
-                                   <div class="form-check-inline">
-                                           <label class="form-check-label" for="radio2">
-                                           <input type="radio" class="form-check-input" ng-model="allottee_gender" name="optradio" value="F" disabled>Female
-                                           </label>
-                                   </div>
-                       </div>	
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4" >
-                                    <label for="Mobile Number"><b>Mobile # :</b></label>
-                                    <input type="text" class="form-control" ng-model="allottee_mobile_number" name="allottee_mobile_number" readonly>          
-                        </div>
-                        <div class="col-md-5" >
-                            <label for="emailid"><b>Email Id :</b></label>
-                            <input type="text" class="form-control" ng-model="allottee_email_id" name="allottee_email_id" readonly>                         
-                        </div>
-                    </div>  
-                    <br>
-                    <div class="row">
-                        <div class="col-md-10" >
-                                    <label for="allotteeaddress"><b>Allottee Address :</b></label>
-                                    <input type="text" class="form-control" ng-model="allottee_address" name="allottee_address" readonly>          
-                        </div>
-                    </div>  
-            </div>
-            
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-            
+    </div>
+
+    <div class="container">
+        <div class="titlebar">MOJANI - View Application for Land Survey <img src="images/user_icon.png">
+          <div class="dropdown" style="float: right;">
+            <button type="button" data-toggle="dropdown">BANK MANAGER <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#" ng-click="Logout()">LOG OUT</a></li>
+            </ul>
           </div>
         </div>
+        <div class="mojani_form">
+        <h2>Land Details</h2>
+        <div class="block">
+        <div class="col-lg-4" >
+          <label>Ward No.</label>
+          <input type="text" ng-model="ward_number" name="ward_number" readonly>
+        </div>
+        <div class="col-lg-4" >
+          <label>Area Code</label>
+          <input type="text" ng-model="area_code" name="area_code" readonly>
+        </div>
+        <div class="col-lg-4" >
+          <label>Plot/Site No.</label>
+          <input type="text" ng-model="plot_number" name="plot_number" readonly>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <hr />
+        <h2>Geographical Data</h2>
+        <div class="block">
+        <div class="col-lg-4" >
+          <label>Latitude</label>
+          <input type="text" ng-model="latitude" name="latitude" readonly>
+        </div>
+        <div class="col-lg-4" >
+          <label>Longitude</label>
+          <input type="text"  ng-model="longitude" name="longitude" readonly>
+        </div>
+        <div class="col-lg-4" >&nbsp;</div>
+        <div class="clearfix"></div>
+        <div class="col-lg-4" >
+          <label>Plot Length (ft.)</label>
+          <input type="text" ng-model="plot_length" name="plot_length" readonly>
+        </div>
+        <div class="col-lg-4" >
+          <label>Plot Width (ft.)</label>
+          <input type="text" ng-model="plot_width" name="plot_width" readonly>
+        </div>
+        <div class="col-lg-4" >
+          <label>Total Ploat Area (sq. ft.)</label>
+          <input type="text" ng-model="plot_area" name="plot_area" readonly>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-lg-4" >
+          <label>Property Address</label>
+          <textarea ng-model="plot_address" name="plot_address" readonly></textarea>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <hr />
+        <h2>Land Allottee Details</h2>
+        <div class="block">
+          <div class="col-lg-4" >
+            <label>Allottee Name</label>
+            <input type="text" ng-model="allottee_name" name="allottee_name" readonly>
+          </div>
+          <div class="col-lg-4" >
+            <label>Aadhar #</label>
+            <input type="text" ng-model="aadhar_number"  name="aadhar_number" readonly>
+          </div>
+          <div class="col-lg-4" >
+            <label>Gender</label>
+            <div class="form-check-inline">
+              <label class="form-check-label" for="radio1">
+              <input type="radio" class="form-check-input" ng-model="allottee_gender" name="optradio" value="M" disabled>Male
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label" for="radio2">
+              <input type="radio" class="form-check-input" ng-model="allottee_gender" name="optradio" value="F" disabled>Female
+              </label>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-lg-4" >
+            <label>Mobile #</label>
+            <input type="text" ng-model="allottee_mobile_number" name="allottee_mobile_number" readonly>
+          </div>
+          <div class="col-lg-4" >
+            <label>Email Id</label>
+            <input type="text" ng-model="allottee_mobile_number" name="allottee_mobile_number" readonly>
+          </div>
+          <div class="col-lg-4" >&nbsp;</div>
+          <div class="clearfix"></div>
+          <div class="col-lg-4" >
+            <label>Allottee Address</label>
+            <textarea ng-model="allottee_address" name="allottee_address" readonly></textarea>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="block">
+          <div class="col-lg-10" >&nbsp;</div>
+          <div class="col-lg-2" >
+          <label>&nbsp;</label>
+          <input type="submit" value="Close" data-dismiss="modal">
+          </div>
+          <div class="clearfix"></div>
+        </div>
       </div>
-
-  <!-- The Modal -->
+      </div>
+      <!-- Content Section ends here--> 
+      
+      <!-- Footer Section starts here-->
+      <footer class="footer">©  copyright 2018</footer>
+      <!-- Footer Section ends here--> 
+      
+    </div>
+    <script>
+    $(document).ready(function(){
+        $(".dropdown-toggle").dropdown();
+    });
+    </script>
+        
+ <!-- The Modal -->
   <div class="modal" id="myModal">
         <div class="modal-dialog">
           <div class="modal-content">
